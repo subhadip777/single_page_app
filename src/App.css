@@ -31,3 +31,17 @@ address{
 .navbar-dark {
   background-color: #512DA8;
 }
+
+#MENUCARD{
+  border: .7px solid black ;
+  /* height: 50%; */
+}
+#link{
+  text-align: center;
+}
+#MENUFOOTER{
+  background-color: white !important;
+}
+#navbutton{
+  color: lightgray;
+}

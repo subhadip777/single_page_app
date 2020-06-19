@@ -13,7 +13,7 @@ function Footer(props){
                     <h5>Links</h5>
                     <ul className="list-unstyled">
                         <li><Link to="/home">Home</Link></li>
-                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/aboutus">About</Link></li>
                         <li><Link to="/menu">Menu</Link></li>
                         <li><Link to="/contactus" >Contact</Link></li>
                     </ul>
@@ -32,12 +32,12 @@ function Footer(props){
                 </div>
                 <div className="col-12 col-sm-4 align-self-center">
                     <div className="text-center">
-                        <a className="btn btn-social-icon btn-google m-2" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
-                        <a className="btn btn-social-icon btn-facebook m-2" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
-                        <a className="btn btn-social-icon btn-linkedin m-2" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
-                        <a className="btn btn-social-icon btn-twitter m-2" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
-                        <a className="btn btn-social-icon btn-google m-2" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
-                        <a className="btn btn-social-icon" href="mailto:"><i className="fa fa-envelope-o"></i></a>
+                        <a target="blank" className="btn btn-social-icon btn-google m-2" href="http://google.com/+"><i className="fa fa-google-plus"></i></a>
+                        <a target="blank" className="btn btn-social-icon btn-facebook m-2" href="http://www.facebook.com/profile.php?id="><i className="fa fa-facebook"></i></a>
+                        <a target="blank" className="btn btn-social-icon btn-linkedin m-2" href="http://www.linkedin.com/in/"><i className="fa fa-linkedin"></i></a>
+                        <a target="blank" className="btn btn-social-icon btn-twitter m-2" href="http://twitter.com/"><i className="fa fa-twitter"></i></a>
+                        <a target="blank" className="btn btn-social-icon btn-google m-2" href="http://youtube.com/"><i className="fa fa-youtube"></i></a>
+                        <a target="blank" className="btn btn-social-icon" href="mailto:"><i className="fa fa-envelope-o"></i></a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar,NavbarBrand,Nav,NavbarToggler,Jumbotron, NavItem, Collapse, } from 'reactstrap';
+import { Navbar,NavbarBrand,Nav,NavbarToggler,Jumbotron, NavItem, Collapse, Modal, ModalHeader, Form, FormGroup, Label, Input, Button, } from 'reactstrap';
 import 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
@@ -7,14 +7,26 @@ class Header extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            isnavopen:false
+            isnavopen:false,
+            isloginopen:false
 
         }
         this.toggleNav=this.toggleNav.bind(this);
+        this.toggleLogin=this.toggleLogin.bind(this);
+        this.handlelogin=this.handlelogin.bind(this);
 
     }
     toggleNav(){
         this.setState({isnavopen:!this.state.isnavopen})
+
+    }
+    toggleLogin(){
+        this.setState({isloginopen: !this.state.isloginopen})
+
+    }
+    handlelogin(event){
+        this.toggleLogin();
+        alert("username :"+ this.username.value +"  password :" + this.password.value+<button>no</button>);
 
     }
 
@@ -36,23 +48,31 @@ class Header extends React.Component{
                         <Nav navbar >
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
-                                    <span className="fas fa-home fa-lg"></span>Home
+                                    <span className="fa fa-home fa-sm"></span>Home
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to="/aboutus">
-                                    <span className="fas fa-home fa-lg"></span>About Us
+                                    <span className="fa fa-info fa-sm"></span>About Us
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to="/menu">
-                                    <span className="fas fa-list fa-lg"></span>Menu
+                                    <span className="fa fa-list fa-sm"></span>Menu
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link" to="/contactus">
-                                    <span className="fas fa-address-card fa-lg"></span>contact Us
+                                    <span className="fa fa-address-card fa-sm"></span>contact Us
                                 </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <button id="navbutton" className="btn btn-outline" onClick={this.toggleLogin} >
+                                    <span className="fa fa-sign-in fa-sm">
+
+                                    </span>
+                                    Login
+                                </button>
                             </NavItem>
 
                         </Nav>
@@ -79,6 +99,36 @@ class Header extends React.Component{
                     </div>
 
                 </Jumbotron>
+                <Modal isOpen={this.state.isloginopen} toggle={this.toggleLogin} >
+                    <ModalHeader toggle={this.toggleLogin}>LOGIN</ModalHeader>
+                    <hr/>
+                    <Form onSubmit={this.handlelogin} className="form p-2">
+                        <FormGroup>
+                            <Label htmlFor="username">Username</Label>
+                            <Input type="text" id="username" name="username" innerRef={(input)=>this.username= input}></Input>
+
+                        </FormGroup>
+                        <FormGroup>
+                            <Label htmlFor="password">Password</Label>
+                            <Input type="text" id="password" name="password" innerRef={(input)=>this.password= input}></Input>
+                            
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="remember" innerRef={(input)=>this.checkbox= input}/><span>Remember me</span>
+                            </Label>
+                        </FormGroup>
+                        <FormGroup>
+                            <button type="submit" value="submit" className="btn btn-outline-primary mt-2" >
+                                Submit
+                            </button>
+                        </FormGroup>
+
+
+                    </Form>
+                    
+
+                </Modal>
             </React.Fragment>
 
         );

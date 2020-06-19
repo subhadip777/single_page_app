@@ -1,6 +1,6 @@
 import React from 'react';
 import 'reactstrap';
-import { Card, CardTitle, CardImg, CardImgOverlay, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Card, CardTitle, CardImg, CardImgOverlay, Breadcrumb, BreadcrumbItem,CardFooter } from 'reactstrap';
 import Dishdetails from './DishDetailsComponent';
 import 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -39,18 +39,25 @@ class Menu extends React.Component{
         const MENU =this.props.dishes.map((dish)=>{
             return(
                 <div key={dish.id} className='col-12 col-lg-3 m-0 mt-2 mb-2'>
-                    <Link to={`/menu/${dish.id}`}>
-                        <Card >
-                            <CardImg src={dish.image} width='100%'/>
-                            <CardImgOverlay className='ml-5'>
-                                <CardTitle>
-                                    <strong>
-                                        {dish.name}
-                                    </strong>
+                        <Card id="MENUCARD" >
+                            
+                            <CardImg src={dish.image} width='100%' height="50%"/>
+
+                                <CardFooter id="MENUFOOTER">
+                                <CardTitle  className="ml-(-2)">
+                                    <span>
+                                         {dish.name}
+                                     </span>
                                 </CardTitle>
-                            </CardImgOverlay>
+                                <hr/>
+                                <Link to={`/menu/${dish.id}`}>
+
+                                    <div id="link">Quick view</div>
+                                    </Link>
+
+                                </CardFooter>
+
                         </Card>
-                    </Link>
                 </div>
 
             );      
@@ -77,6 +84,8 @@ class Menu extends React.Component{
                     </div>
 
                 </div>
+                <hr/>
+
                 <div className='row'>
                         {MENU}
 
